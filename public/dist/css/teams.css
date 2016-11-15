@@ -1,0 +1,416 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat|Roboto';
+
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;    
+    font-family: 'Lato', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+body, textarea{
+    font-family: 'Lato', 'Montserrat', 'Roboto', sans-serif;
+}
+
+body{
+  background: #eceff1;
+}
+h1{
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-align: center;    
+}
+
+label{
+  color::rgba(255,255,255,.84);
+}
+
+ul > li.titlepage:hover, .sidebar-user, .footer-text > a{
+  color:rgba(255,255,255,.84);
+}
+
+a, li > a:hover, .navbar-nav > li:hover{
+    text-decoration: none;
+}
+
+a.btn.btn-link{
+  color:#78909c;
+}
+
+.teams-brand
+{
+  
+}
+
+.landing-page{
+  background:url('../../img/main.background.jpg') fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+.landing-cover{
+  background-color: rgba(0,0,0,0.64);
+}
+
+.label-floating .form-control{
+  color:rgba(255,255,255,.72);  
+}
+
+.oper-desc{
+  color: rgba(0,0,0,0.54);
+}
+
+.title-icon{
+  font-size: 50px;
+}
+
+.navbar-toggle:hover, .navbar-nav > li:hover, a.btn.btn-link:hover, .footer-text > a:hover,
+.form-group .checkbox label.login-check:hover{
+  text-decoration: none;
+  color: #cfd8dc;
+}
+
+.navbar-dropshadow {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.10);
+}
+
+.card{
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);  
+  background: #fafafa;
+}
+
+.nav-pills li.active a, .nav-pills li.active a:hover{
+  background: #78909c;
+  cursor: default;
+}
+
+.btn.btn-raised.btn-info{
+  background: #455a64;  
+}
+
+.nav-pills li a:hover, .btn.btn-raised.btn-info:hover:not(.btn-link){
+  background: #cfd8dc;
+  color: #607d8b;
+}
+.list-group .list-group-item.list-group-photo{
+  margin-left: 0px;
+  padding-left: 0px;
+  
+}
+.list-group .list-group-item .row-picture img{
+  width: 100px;
+  height: 100px;
+  margin-top: 25px;
+}
+
+.table > tbody > tr > td:not(.btn-group-sm), .table > tbody > tr > th{
+  padding-top: 17px;
+}
+
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.pagination > li {
+  display: inline;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  color: #f44336;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  margin-left: -1px;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  z-index: 2;
+  color: #d2190b;
+  background-color: #ffcdd2;
+  border-color: #dddddd;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 3;
+  color: #ffffff;
+  background-color: #f44336;
+  border-color: #f44336;
+  cursor: default;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777777;
+  background-color: #ffffff;
+  border-color: #dddddd;
+  cursor: not-allowed;
+}
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+}
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+/*calendar style*/
+
+.header-day, .day, .empty, .clndr-controls div{
+    float:left;
+}
+
+.day.event{
+  border-bottom: 2.5px solid #607d8b;  
+  color:#455a64;
+  /*color:#607d8b;*/
+}
+
+.clndr-controls div{
+    width: 33.33%;
+}
+
+.events{
+  margin-top: 25px;
+}
+
+.events .headers,.clndr-controls div{
+    padding: 20px;
+    background: #D32F2F;
+    overflow-x: hidden;
+    /*background: #607D8B;*/
+}
+
+.header-day, thead{
+    background: #FFCDD2;
+}
+
+.event-header, .month{
+    /*font-weight: bold; */
+    color: #FFCDD2; 
+}
+
+.last-month, .next-month{
+    color:rgba(0,0,0,.42);
+}
+
+.clndr-button i{
+  color:rgba(255,255,255,.84);
+  font-weight: bold;
+  /*font-size: 14px;*/
+}
+
+.clndr-button i:hover, .clndr-button:hover{
+  cursor:pointer;
+  color:#cfd8dc;
+}
+
+.calendar{
+  margin-top: 20px;
+  margin-bottom: 140px;
+  padding: 0px;
+}
+
+.header-day,.day, .empty{
+  width: 14.285714%;
+  padding: 15px 0px;
+}
+
+.header-day{
+    height: 50px;
+}
+.day, .empty{
+    height: 100px;
+
+    overflow: auto;
+}
+.day, .empty{    
+    background: #cfd8dc;    
+    border: 1px solid #F5F5F5;
+}
+.day{
+  padding-top:40px;
+}
+.events .table > tbody > tr > td, .events .table > thead > tr > th{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* layout l-* */
+
+html, body{
+    margin:0;
+    padding: 0;
+    height: 100%;      
+}
+
+h3{
+  margin:15px 10px;
+}
+.label-floating p.alert-danger{
+  margin-bottom: 0px;
+}
+
+.main{
+  margin-top: 100px;
+}
+
+.message-filler .text-justify{
+    margin-top: 45px;
+}
+
+.message-filler .text-justify, footer div p{
+    line-height: 1.75em;
+}
+
+.splash{
+    color: rgba(255,255,255,0.92);
+    font-variant: thin;
+    font-size: 18px;
+    padding: 0px 25px;
+    margin: 95px 0px 50px 0px;
+}
+
+.l-card{
+  padding: 20px 35px 20px 20px;
+}
+.l-card{  
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.l-checkbox{
+  padding: 5px 0px 0px 0px;
+}
+section{
+  padding-bottom: 140px;
+  margin-bottom: 30px;
+}
+
+footer{
+  position: absolute;  
+  bottom: 0;  
+  width: 100%;
+  height:140px;
+}
+
+.footer-main, .footer-landing{
+  background: #F44336;  
+  color:rgba(0,0,0,.84);
+}
+
+footer p{
+  margin-top: 25px;
+}
+
+footer > li{
+  text-indent: 20px;
+}
+
+.container-fluid{
+  min-height: 100%;
+  position: relative;
+}
+
+h1.titlepage, legend small, legend.titlepage{
+  color:rgba(0,0,0,.52);  
+  margin:0px;
+  /*padding-bottom: 30px;*/
+}
+
+legend.titlepage{
+  font-size: 30px;
+}
+
+h3 small{
+  font-size: 13px;
+}
+
+legend small{
+  font-size:16px;
+}
+
+.l-oper-desc, .l-oper, a.btn.btn-link{
+  margin: 0px 0px;
+  padding: 0px
+}
+
+.teams-btn{
+  margin-right: 30px;
+}
+.l-titlearea div, .teams-btn{
+  margin-bottom: 15px;
+}
+
+.form-group div p{
+  padding-top: 19px;
+}
+/*Spinners*/
+
+/*SECOND VERSION*/
+.spinner-master2 * {transition:all 0.3s;-webkit-transition:all 0.3s;box-sizing:border-box;}
+
+.spinner-master2 {position:relative;margin:50px auto;height:50px;width:50px;}
+
+.spinner-master2 input[type=checkbox] {display:none;}
+.spinner-master2 label {cursor:pointer;position:absolute;z-index:99;height:100%;width:100%;top:10px;left:0;}
+
+.spinner-master2 .spinner2 {position:absolute;height:5px;width:100%;background-color:#FFF;}
+
+.spinner-master2 .diagonal.part-1 {position:relative;float:left;}
+.spinner-master2 .horizontal {position:relative;float:left;margin-top:7px;}
+.spinner-master2 .diagonal.part-2 {position:relative;float:left;margin-top:6px;}
+
+.spinner-master2 input[type=checkbox]:checked ~ .spinner-spin2 > .horizontal {opacity: 0;}
+.spinner-master2 input[type=checkbox]:checked ~ .spinner-spin2 > .diagonal.part-1 {transform:rotate(135deg);-webkit-transform:rotate(135deg);margin-top:10px;}
+.spinner-master2 input[type=checkbox]:checked ~ .spinner-spin2 > .diagonal.part-2 {transform:rotate(-135deg);-webkit-transform:rotate(-135deg);margin-top:-16px;}
+

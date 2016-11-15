@@ -1,0 +1,11 @@
+accent:
+
+@blue-grey-500: #607d8b;
+@blue-grey-100: #cfd8dc;
+@blue-grey-400: #78909c;
+
+primary:
+
+@red-100: #ffcdd2;
+@red-500: #f44336;
+@red-700: #d32f2f;

@@ -1,0 +1,107 @@
+$weekend = App\Weekend::create(['day' => 'Sunday', 'weekend' => 1]);
+$weekend->save();
+
+$weekend = App\Weekend::create(['day' => 'Monday', 'weekend' => 0]);
+$weekend->save();
+
+$weekend = App\Weekend::create(['day' => 'Tuesday', 'weekend' => 0]);
+$weekend->save();
+
+$weekend = App\Weekend::create(['day' => 'Wednesday', 'weekend' => 0]);
+$weekend->save();
+
+$weekend = App\Weekend::create(['day' => 'Thursday', 'weekend' => 0]);
+$weekend->save();
+
+$weekend = App\Weekend::create(['day' => 'Friday', 'weekend' => 0]);
+$weekend->save();
+
+$weekend = App\Weekend::create(['day' => 'Saturday', 'weekend' => 1]);
+$weekend->save();
+
+
+$leaveType = App\LeaveType::create(['leave_description' => 'Vacation Leave']);
+$leaveType->save();
+
+$leaveType = App\LeaveType::create(['leave_description' => 'Sick Leave']);
+$leaveType->save();
+
+$benefit = new App\Benefit;
+$benefit = App\Benefit::create(['benefit_description' => 'Basic Leaves', 'max_vl' => 15, 'max_sl' => 13, 'allow_vl_update' => false])
+$benefit->save();
+
+$benefit = App\Benefit::create(['benefit_description' => 'Class CD Package', 'max_vl' => 16, 'max_sl' => 13, 'allow_vl_update' => true])
+$benefit->save();
+
+$benefit = App\Benefit::create(['benefit_description' => 'CEO Package', 'max_vl' => 99, 'max_sl' => 99, 'allow_vl_update' => true])
+$benefit->save();
+
+$benefit = App\Benefit::create(['benefit_description' => 'Admin Package', 'max_vl' => 20, 'max_sl' => 20, 'allow_vl_update' => true])
+$benefit->save();
+
+$benefit = new App\Benefit;
+$jobClass = new App\JobClass;
+$benefit = $benefit->find(1);
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'A']));
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'B']));
+
+$benefit = $benefit->find(2);
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'C']));
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'D']));
+
+$benefit = $benefit->find(3);
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'E']));
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'F']));
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'G']));
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'H']));
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'I']));
+
+
+$benefit = $benefit->find(4);
+$benefit->jobClasses()->save( new App\JobClass(['job_class_description' => 'admin']));
+
+
+$jobClass = new App\JobClass;
+$jobDescription = new App\JobDescription;
+$jobClass = $jobClass->find(1);
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Programmer Trainee']));
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Junior Trainee']));
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Analyst Trainee']));
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Analyst Programmer']));
+$jobClass = $jobClass->find(2);
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Senior Analyst Programmer']));
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Senior Analyst']));
+$jobClass = $jobClass->find(3);
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Junior Software Engineer']));
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Junior Business Analyst']));
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Business Analyst']));
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Software Engineer']));
+$jobClass = $jobClass->find(4);
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Senior Software Engineer']));
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Senior Business Analyst']));
+$jobClass = $jobClass->find(5);
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Associate Project Manager']));
+$jobClass = $jobClass->find(6);
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Project Engineer']));
+$jobClass = $jobClass->find(9);
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'Vice President']));
+$jobClass = $jobClass->find(10);
+$jobClass->jobDescriptions()->save( new App\JobDescription(['job_description' => 'HRD']));
+
+$user = App\User::create(['first_name' => 'Richard', 'last_name' => 'Te', 'role' => 2, 'job_description_id' => 15, 'job_class_id' => 9, 'supervisor_id' => null, 'rem_vl' => 15, 'rem_sl' => 13, 'email' => 'reuelcabal@gmail.com','password' => bcrypt('test1234'),'name_key' => 'Te, Richard Chong']);
+$user->save();
+
+$supervisor = App\Supervisor::create(['user_id' => 1]);
+$supervisor->save();
+
+
+$user = App\User::create(['emp_number' => 2, 'first_name' => 'Mike', 'last_name' => 'Uy', 'role' => 0, 'job_description_id' => 15, 'job_class_id' => 9, 'supervisor_id' => null, 'rem_vl' => 15, 'rem_sl' => 13, 'email' => 'markreuelcabal@gmail.com','password' => bcrypt('test1234'),'name_key' => 'Uy, Michael Chua']);
+
+$user->save();
+
+$supervisor = App\Supervisor::create(['user_id' => 2]);
+$supervisor->save();
+
+$user = App\User::create(['emp_number' => 1, 'first_name' => 'Jah', 'last_name' => 'Doronilla', 'role' => 1, 'job_description_id' => 16, 'job_class_id' => 10, 'supervisor_id' => 2, 'rem_vl' => 20, 'rem_sl' => 20, 'email' => 'teamshrdtest@gmail.com','password' => bcrypt('test1234'), 'name_key' => 'Doronila, Johnylyn Litrago']);
+$user->save();
+
