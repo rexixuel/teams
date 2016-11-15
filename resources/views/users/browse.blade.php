@@ -22,7 +22,7 @@
                             {{ session('message') }}
                         </div>
                     @endif                    			
-			<h4> Search Term: <small> {{ $search_name }} </small> </h4> 
+			<h4> Search Term: <small> {{ $search['search_emp_number'] }} - {{ $search['search_first_name'] }} {{ $search['search_last_name'] }}</small> </h4> 
 			<table class='table table-striped table-hover'>
 				<thead>
 					<tr>

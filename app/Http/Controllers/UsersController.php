@@ -50,19 +50,27 @@ class UsersController extends Controller
 
     public function browse(UsersRequest $request){
         $users = new User;
-        $search_name = $request['search_name'];
+        $search = $request->all();
 
         $users = $users->with('jobDescription')->with('jobClass');
 
         if(Auth::user()->role == 2){
             $users = $users->where('supervisor_id','=',Auth::id());
         }
-        $users = $users->where( function($q) use($request) {
-                        $q->where('first_name','LIKE','%'.$request['search_name'].'%')
-                        ->orWhere('last_name','LIKE','%'.$request['search_name'].'%');
+        $users = $users->where( function($q) use($search) {
+                            $q->where('first_name','LIKE','%'.$search['search_first_name'].'%');
+                        if(!empty($search['search_last_name']))
+                        {
+                            $q->where('last_name','LIKE','%'.$search['search_last_name'].'%');
+                        }
+
+                        if(!empty($search['search_emp_number']) && $search['search_emp_number'] != 0)
+                        {
+                            $q->where('emp_number','=',$search['search_emp_number']);
+                        }                        
                      })->paginate(10);
         
-        return view('users.browse', compact('users', 'search_name'));
+        return view('users.browse', compact('users', 'search'));
     }
 
     public function destroy($id)

@@ -47,8 +47,8 @@ $( function() {
           // this event fires whenever the month is changed
           onMonthChange: function(month) {
             lates = 0;
-            teamsEvents = [];
 
+            teamsEvents = [];
             $.get($('#clndr-attendance').data('url-holiday'), 
             {
                 data: {
@@ -129,7 +129,7 @@ $( function() {
   if(teamsEvents.length == 0){
 
      late = 0;
-
+     teamsEvents = [];
       $.get($('#clndr-attendance').data('url-holiday'), 
       {
           data: {

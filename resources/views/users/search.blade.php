@@ -30,15 +30,35 @@
                     @endif                    
                     <fieldset>
 
-                      <div class="form-group {{ $errors->has('search') ? ' has-error' : '' }}">
-                        <label for="search_name" class="col-md-2 control-label"> Search Name </label>
+                      <div class="form-group {{ $errors->has('search_first_name') ? ' has-error' : '' }}">
+                        <label for="search_first_name" class="col-md-2 control-label"> Search First Name </label>
                          <div class="col-md-10">                         
-                          <input type="text" id="search" name="search_name" class="form-control" 
-                          value="{{ old('search_name') }}"/>
+                          <input type="text" id="search-first" name="search_first_name" class="form-control" 
+                          value="{{ old('search_first_name') }}"/>
 
-                          @include('modules.errorField', ['field' => 'search_name'])
+                          @include('modules.errorField', ['field' => 'search_first_name'])
+
                         </div>
                       </div>                                    
+                      <div class="form-group {{ $errors->has('search_last_name') ? ' has-error' : '' }}">
+                        <label for="search_last_name" class="col-md-2 control-label"> Search Last Name </label>
+                         <div class="col-md-10">                         
+                          <input type="text" id="search-last" name="search_last_name" class="form-control" 
+                          value="{{ old('search_last_name') }}"/>
+
+                          @include('modules.errorField', ['field' => 'search_last_name'])                          
+                        </div>
+                      </div>                                                          
+
+                      <div class="form-group {{ $errors->has('search_emp_number') ? ' has-error' : '' }}">
+                        <label for="search_emp_number" class="col-md-2 control-label"> Search Employee Number </label>
+                         <div class="col-md-10">                         
+                          <input type="text" id="emp-num" name="search_emp_number" class="form-control" 
+                          value="{{ old('search_last_name') }}" placeholder="0000" />
+
+                          @include('modules.errorField', ['field' => 'search_last_name'])                          
+                        </div>
+                      </div>                                                                                
                           @include('modules.submitField', ['field' => 'Search'])
                     </fieldset>
                   </form>
