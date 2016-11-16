@@ -213,4 +213,4 @@ Route::get('api/weekends', function(){
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'AttendancesController@index');
