@@ -16,7 +16,8 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->binary('photo');
+            // comment out. use raw query for mediumblob
+            // $table->binary('photo');
             $table->integer('emp_number')->unsigned()->unique();
             $table->integer('role')->unsigned()->index();
             $table->integer('job_description_id')->unsigned();
@@ -30,6 +31,10 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // mediumblob for photos
+
+        DB::statement("ALTER TABLE users ADD photo MEDIUMBLOB");
     }
 
     /**
