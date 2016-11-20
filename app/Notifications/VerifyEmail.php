@@ -41,6 +41,7 @@ class VerifyEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('TEAMS TeraMail Verification')        
                     ->greeting('Welcome to TEAMS!')
                     ->line('You have successfully been registered into TEAMS.')
                     ->line('To access your account, click on link below to verify your email and reset your password. Thank you')
