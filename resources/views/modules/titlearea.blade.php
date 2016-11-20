@@ -5,8 +5,8 @@
 				<legend class="titlepage text-left"> {{ $user->first_name }} {{ $user->last_name }} </legend>	  	    
 	  	    @else
 				<ul class="nav nav-pills">
-			  	  <li role="presentation" class="{{$attendancesActive}}"><a href="attendances"> Attendances </a></li>
-				  <li role="presentation" class="{{$leavesActive}}"><a href="leaves"> Leaves </a></li>
+			  	  <li role="presentation" class="{{$attendancesActive}}"><a href="{{url(attendances)}}"> Attendances </a></li>
+				  <li role="presentation" class="{{$leavesActive}}"><a href="{{url(leaves)}}"> Leaves </a></li>
 				</ul>
 			@endif
 		  </div>
