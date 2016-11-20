@@ -63,6 +63,10 @@ a.btn.btn-link{
   font-size: 50px;
 }
 
+.nav-name{
+  font-size: 15px;
+}
+
 .navbar-toggle:hover, .navbar-nav > li:hover, a.btn.btn-link:hover, .footer-text > a:hover,
 .form-group .checkbox label.login-check:hover{
   text-decoration: none;
@@ -331,6 +335,11 @@ h3{
 .l-checkbox{
   padding: 5px 0px 0px 0px;
 }
+
+.l-nav-name{
+  margin-left: 10px;
+}
+
 section{
   padding-bottom: 120px;
   margin-bottom: 30px;

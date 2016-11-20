@@ -214,3 +214,4 @@ Route::get('api/weekends', function(){
 Route::auth();
 
 Route::get('/home', 'AttendancesController@index');
+Route::get('/logout', 'Auth\LoginController@logout');

@@ -40,8 +40,11 @@
                     <span class="glyphicon glyphicon-option-horizontal"></span>
                   </button>
                   @yield('menuToggle')
-                  <a class="navbar-brand text-center teams-brand" href="/"> T E A M:S </a> <!-- <a class="navbar-brand text-center"> | {{ Carbon\Carbon::now()->format('M d,Y') }} </a> -->
+                  <a class="navbar-brand text-center teams-brand l-teams-brand" href="/"> T E A M:S </a>
+                  
                 </div>
+
+                
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
                   <ul class="nav navbar-nav navbar-right">
                     @yield('navbar')

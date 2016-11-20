@@ -18,11 +18,11 @@ use Password;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class UsersController extends Controller
 {
-	use ResetsPasswords;
-
+    use SendsPasswordResetEmails;
 	public function __construct()
 	{
         $this->middleware('auth');
@@ -206,9 +206,10 @@ class UsersController extends Controller
         if($role == 2){
             $supervisors->create(['user_id' => $user->id]);
         }
+        $token = $this->broker()->createToken($user);
 
-		$this->sendResetLinkEmail($request);
-        
+        // $this->sendResetLinkEmail($request);
+        $user->verifyEmail($token);
 		return back()->with('message', title_case($request['first_name']).' '.title_case($request['last_name']).' has been successfully registered!');
 	}
 

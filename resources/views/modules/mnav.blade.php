@@ -1,8 +1,18 @@
 @section('menuToggle')
 	@if (!Auth::guest())
-                  <button id="menu-toggle" class="btn-link navbar-brand"> 
+                  <button id="menu-toggle" class="btn-link navbar-brand l-menu">
                     <i class="fa fa-bars" aria-hidden="true"></i>
+                    <span class="l-nav-name nav-name"> {{Auth::user()->first_name}} {{Auth::user()->last_name}} </span>
+                    
                   </button>	
+    @endif
+@stop
+
+@section('userSection')
+  @if (!Auth::guest())
+                  <ul class="nav navbar-nav">
+                    <li class=""> </li>
+                  </ul>              
     @endif
 @stop
 
