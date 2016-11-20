@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use App\JobDescription;
+use App\JobClass;
 class JobClassRequest extends Request
 {
     /**
@@ -24,8 +24,8 @@ class JobClassRequest extends Request
     public function rules()
     {
         $request = $this->request->all();
-        $jobClass = new JobDescription;
-        $jobClass = $jobClass->find($this->jobclasses);
+        $jobClass = new JobClass;
+        $jobClass = $jobClass->find($this->jobclass);
         
         if ($jobClass != null && $jobClass->job_class_description != $request['job_class_description'])
         {

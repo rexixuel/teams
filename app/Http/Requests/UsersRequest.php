@@ -56,7 +56,8 @@ class UsersRequest extends Request
                 $rules = array_merge($rules, array('rem_vl' => "numeric|required"));
             }
 
-            $user = $user->find($this->users);        
+            $user = $user->find($this->user);
+            
             if ($user->email != $request['email'])
             {
                 $rules = array_merge($rules, array('email' => 'unique:users'));

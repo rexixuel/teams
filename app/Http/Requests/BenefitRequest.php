@@ -26,7 +26,7 @@ class BenefitRequest extends Request
     {
         $request = $this->request->all();
         $benefit = new Benefit;
-        $benefit = $benefit->find($this->benefits);
+        $benefit = $benefit->find($this->benefit);
         
         if ($benefit != null && $benefit->benefit_description != $request['benefit_description'])
         {

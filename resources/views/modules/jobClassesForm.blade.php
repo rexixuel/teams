@@ -29,7 +29,8 @@
                         <div class="form-group {{ $errors->has('job_class_description') ? ' has-error' : '' }}">
                           <label for="job_class_description" class="col-md-2 control-label"> Job Class </label>
                           <div class="col-md-10">
-                            <input id="job-class-description" name="job_class_description" type="text" class="form-control" placeholder="{{ $jobClass->job_class_description }}" value="{{ old('job_class_description')}}" />
+                            {{ Form::text('job_class_description',old('job_class_description'),['class' => 'form-control', 'placeholder' => 0, 'id' => 'job-class-description']) }}
+
                             @include('modules.errorField', ['field' => 'job_class_description'])
                           </div>
                         </div>

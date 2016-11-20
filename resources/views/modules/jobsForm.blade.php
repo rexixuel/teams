@@ -32,7 +32,8 @@
                           <div class="form-group {{ $errors->has('job_description') ? ' has-error' : '' }}">
                             <label for="job-description" class="col-md-2 control-label"> Job Description</label>
                             <div class="col-md-10">
-	                          <input type="text" name="job_description" id="job-description" class="form-control" placeholder="" value="{{ $jobDescription->job_description }}"  />
+                            {{ Form::text('job_description',old('job_description'),['class' => 'form-control', 'placeholder' => 'Job Description', 'id' => 'job-description']) }}                            
+
 	                          @include('modules.errorField', ['field' => 'job_description'])
 	                          <span id="helpBlock" class="help-block"> This refers to employee's job description or title. This field is required.</span>                          
                             </div>

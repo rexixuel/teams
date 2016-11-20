@@ -25,7 +25,7 @@ class JobDescriptionRequest extends Request
     {
         $request = $this->request->all();
         $jobDescription = new JobDescription;
-        $jobDescription = $jobDescription->find($this->jobs);
+        $jobDescription = $jobDescription->find($this->job);
         
         if ($jobDescription != null && $jobDescription->job_description != $request['job_description'])
         {
