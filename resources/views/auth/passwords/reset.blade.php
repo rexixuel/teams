@@ -18,8 +18,8 @@
 @section('content')
 
 <section class="main">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <!-- <div class="row">
+        <div class="col-md-8 col-md-offset-2"> -->
 
             @include('modules.titlearea', ['page' => '','titlepage' => 'Employees'])
             <div class="card l-card">
@@ -79,8 +79,8 @@
                         </div>
                     </form>
               </div>  
-        </div>
-    </div>
+        <!-- </div>
+    </div>-->
 </section>                                             
 
 @endsection
