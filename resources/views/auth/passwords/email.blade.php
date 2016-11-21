@@ -5,6 +5,15 @@
           'footerClass' => 'footer-main'
           ]
       )
+@section('titlePage')
+  <title> Employee - Registration </title>
+@stop
+
+@include('modules.mnav')
+
+@if(!Auth::guest())
+  @include('modules.sidebar')
+@endif
 
 @section('content')
 
@@ -12,7 +21,7 @@
     <!-- <div class="row">
         <div class="col-md-8 col-md-offset-2">
       -->
-            @include('modules.titlearea', ['page' => '','titlepage' => 'Users'])
+            @include('modules.titlearea', ['page' => '','titlepage' => 'Employees'])
             <div class="card l-card">
               @include('modules.cardOperation', ['operation' => 'Reset Password', 'operDescription' => 'Enter e-mail to reset your password. An email will be sent to you with further instructions to reset your password'])
                     @if (session('status'))
