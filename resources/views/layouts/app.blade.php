@@ -82,8 +82,9 @@
       <script src="{{ URL::asset('/dist/js/jquery.maskedinput.min.js') }}"></script>
       <script>
         $.material.init();
-
-        @yield('sidebarScript')
+        @if(!Auth::guest())
+            @yield('sidebarScript')
+        @endif
       </script>
     </body>
 </html> 
