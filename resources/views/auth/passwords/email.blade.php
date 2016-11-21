@@ -9,9 +9,9 @@
 @section('content')
 
 <section class="main">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-8 col-md-offset-2">
-
+      --!>
             @include('modules.titlearea', ['page' => '','titlepage' => 'Users'])
             <div class="card l-card">
               @include('modules.cardOperation', ['operation' => 'Reset Password', 'operDescription' => 'Enter e-mail to reset your password. An email will be sent to you with further instructions to reset your password'])
@@ -46,8 +46,8 @@
                             </div>
                         </div>
                     </form>
-              </div>  
-        </div>
+              <!--</div>  
+        </div> -->
     </div>
 </section>                                             
 
