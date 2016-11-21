@@ -67,7 +67,7 @@
 					@if(!Request::is('leaves/approval/*'))
 						{{ number_format(Auth::user()->rem_vl, 2) }}
 					@else
-						{{ number_format($leave->employee->rem_vl, 2) }}
+						{{ number_format($leaves->employee->rem_vl, 2) }}
 					@endif
 				</div>
 
@@ -76,7 +76,7 @@
 					@if(!Request::is('leaves/approval/*'))
 						{{ number_format(Auth::user()->rem_sl, 2) }}
 					@else
-						{{ number_format($leave->employee->rem_sl, 2) }}
+						{{ number_format($leaves->employee->rem_sl, 2) }}
 					@endif
 				</div>
 			</div>
