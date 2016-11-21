@@ -101,7 +101,8 @@ Route::get('api/{id}/calendar', function($id){
     // {      
       if(Auth::user()->role <= 2)
       {
-        $attendances = $user->find($id)->attendances()->monthYear($month, $year)->where('time_in','>',0)->where('time_out','>',0)->get();
+	  $attendances = $user->find($id)->attendances()->monthYear($month, $year)->get();
+        //$attendances = $user->find($id)->attendances()->monthYear($month, $year)->where('time_in','>',0)->where('time_out','>',0)->get();
         $attendanceCount = $attendances->count();
         $attendances = $attendances->toArray();
         if(!empty($attendanceCount))
@@ -123,7 +124,8 @@ Route::get('api/{id}/calendar', function($id){
       }
       else
       {
-        $attendances = Auth::user()->attendances()->monthYear($month, $year)->where('time_in','>',0)->where('time_out','>',0)->get()->toArray();
+	  $attendances = Auth::user()->attendances()->monthYear($month, $year)->get()->toArray();
+        //$attendances = Auth::user()->attendances()->monthYear($month, $year)->where('time_in','>',0)->where('time_out','>',0)->get()->toArray();
         $x=0;
         foreach ($attendances as $attendance) {
           $attendances[$x]["id"] = "attendances/".$attendance["id"];
@@ -147,8 +149,8 @@ Route::get('api/calendar', function(){
   	$date = Request::get('data');
   	$month = $date['month'];
   	$year = $date['year'];
-
-  	$attendances = Auth::user()->attendances()->monthYear($month, $year)->where('time_in','>',0)->where('time_out','>',0)->get()->toArray();
+        $attendances = Auth::user()->attendances()->monthYear($month, $year)->get()->toArray();
+  	//$attendances = Auth::user()->attendances()->monthYear($month, $year)->where('time_in','>',0)->where('time_out','>',0)->get()->toArray();
     $x=0;
     foreach ($attendances as $attendance) {
       $attendances[$x]["id"] = "attendances/".$attendance["id"];
