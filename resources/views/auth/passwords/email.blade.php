@@ -6,7 +6,7 @@
           ]
       )
 @section('titlePage')
-  <title> Employee - Registration </title>
+  <title> Employee - Reset Password </title>
 @stop
 
 @include('modules.mnav')
