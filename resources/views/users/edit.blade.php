@@ -18,7 +18,7 @@
 
 @section('content')
           <section class="main">
-            @include('modules.titlearea', ['page' => '','titlepage' => 'Users'])
+            @include('modules.titlearea', ['page' => '','titlepage' => 'Employees'])
             <div class="card l-card">
               @include('modules.cardOperation', ['operation' => 'Update', 'operDescription' => 'Update Tera Employee details. You may update employee\'s job class here and adjust their leaves'])
                 {{ Form::model($user, ['action' => ['UsersController@update',$user->id], 'method' => 'PATCH', 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data']) }}
