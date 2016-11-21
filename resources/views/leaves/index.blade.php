@@ -63,11 +63,21 @@
 			@include('modules.cardOperation', ['operation' => 'Remaining Leaves', 'operDescription' => 'View number of remaining leaves'])
 			<div class="row">
 				<div class="col-md-6 text-center">
-					<strong> Vacation Leaves: </strong> {{ number_format(Auth::user()->rem_vl, 2) }}
+					<strong> Vacation Leaves: </strong> 
+					@if(!Request::is('leaves/approval/*'))
+						{{ number_format(Auth::user()->rem_vl, 2) }}
+					@else
+						{{ number_format($leave->employee->rem_vl, 2) }}
+					@endif
 				</div>
 
 				<div class="col-md-6 text-center">
-					<strong> Sick Leaves: </strong> {{ number_format(Auth::user()->rem_sl, 2) }}
+					<strong> Sick Leaves: </strong> 
+					@if(!Request::is('leaves/approval/*'))
+						{{ number_format(Auth::user()->rem_sl, 2) }}
+					@else
+						{{ number_format($leave->employee->rem_sl, 2) }}
+					@endif
 				</div>
 			</div>
 		</div>		
