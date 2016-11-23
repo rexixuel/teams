@@ -43,7 +43,7 @@
                   </div>
                   <div class="form-group">
 
-                        <button type="submit" name="login" class="btn btn-raised btn-primary teams-btn"> Log In </button>
+                        <button type="submit" name="login" class="btn btn-raised btn-primary teams-btn"> Login </button>
 
                         <span class="text-right"> <a href="{{ url('/password/reset') }}" class="btn btn-link"> Forgot password? </a> </span>
                       </div>                
