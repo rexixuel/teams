@@ -45,7 +45,7 @@ a.btn.btn-link{
   /*background:url('../../img/main.background.jpg') fixed;
   background-size: cover;*/
   background:url('../../img/download.jpeg') fixed;
-  background-size: contain;  
+  background-size: cover;  
   color: #fff;
 }
 
