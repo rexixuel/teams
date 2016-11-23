@@ -7,7 +7,11 @@
                     <div class="list-group">
                       <div class="list-group-item list-group-photo">
                         <div class="row-picture">
-                          {{ Html::image('users/'.Auth::id().'/photo', Auth::user()->first_name, ['class' => 'circle user-photo'] )}}                          
+                          @if(Auth::user()->photo != null)
+                              {{ Html::image('users/'.Auth::id().'/photo', Auth::user()->first_name, ['class' => 'circle user-photo'] )}}
+                          @else
+                              {{ Html::image('img/default-photo.png', Auth::user()->first_name, ['class' => 'circle user-photo'] )}}
+                          @endif
                         </div>
                       </div>
                     </div>
