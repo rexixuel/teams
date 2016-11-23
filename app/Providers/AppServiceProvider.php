@@ -81,7 +81,7 @@ class AppServiceProvider extends ServiceProvider
             if($tableName == 'Leave')
             {
                 $table = new Leave;
-                $table = $table->where('status','!=','Rejected')->where('status','!=','Revoked');
+                $table = $table->where('status','!=','Rejected')->where('status','!=','Revoked')->where('user_id','=',$parameters[1]);
             }
             elseif($tableName == 'Holiday')
             {
@@ -118,7 +118,7 @@ class AppServiceProvider extends ServiceProvider
             if($tableName == 'Leave')
             {
                 $table = new Leave;
-                $table = $table->where('status','!=','Rejected')->where('status','!=','Revoked');
+                $table = $table->where('status','!=','Rejected')->where('status','!=','Revoked')->where('user_id','=',$parameters[2]);
             }
             elseif($tableName == 'Holiday')
             {
