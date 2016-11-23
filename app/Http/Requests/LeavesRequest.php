@@ -37,9 +37,9 @@ class LeavesRequest extends Request
 
         $user_id = Auth::id();
         $rules = [
-            'start_date' => "sometimes|required|date|unique:leaves,start_date,NULL,id,user_id,$user_id|is_unique_range:Leave|is_start_holiday",
+            'start_date' => "sometimes|required|date|unique:leaves,start_date,NULL,id,user_id,$user_id|is_unique_range:Leave,$user_id|is_start_holiday",
             'reason' => 'required|min:5',
-            'end_date' => "sometimes|required|date|after:start_date-1|unique:leaves,end_date,NULL,id,user_id,$user_id|is_unique_end_range:$start,Leave|is_end_holiday:$start",
+            'end_date' => "sometimes|required|date|after:start_date-1|unique:leaves,end_date,NULL,id,user_id,$user_id|is_unique_end_range:$start,Leave,$user_id|is_end_holiday:$start",
             'leave_sub_type' => "sometimes|required",
         ];
 

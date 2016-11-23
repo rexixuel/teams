@@ -34,8 +34,7 @@ class HolidaysRequest extends Request
 
 
         $rules = [
-            'holiday_description' => "sometimes|required",
-            'weekend' => "required",
+            'holiday_description' => "sometimes|required",            
             'num_days' => "numeric|min:1",
             'start_date' => "required|date|unique:holidays|is_unique_range:Holiday",
             'end_date' => "required|date|after:start_date-1|unique:holidays|is_unique_end_range:$start,Holiday",

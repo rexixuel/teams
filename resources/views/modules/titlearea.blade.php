@@ -1,5 +1,5 @@
 		<div class="row l-titlearea">
-		  @if(Request::is('leaves') || Request::is('/') || Request::is('attendances') || Request::is('users/*/attendances') || Request::is('leaves/approval/*'))
+		  @if(Request::is('leaves') || Request::is('home') || Request::is('/') || Request::is('attendances') || Request::is('users/*/attendances') || Request::is('leaves/approval/*'))
 		  <div class="col-md-5">
 	  	    @if (Request::is('users/*/attendances') || Request::is('leaves/approval/*'))
 				<legend class="titlepage text-left"> {{ $user->first_name }} {{ $user->last_name }} </legend>	  	    

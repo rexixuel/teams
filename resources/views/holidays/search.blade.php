@@ -44,7 +44,7 @@
                           <div class="col-md-10">
                                     <div class="input-group date" id="start-date-form">
                                       <span class="input-group-addon glyphicon glyphicon-calendar"></span> 
-                                        {{ Form::date('start_date',old('start_date'),['class' => 'form-control', 'placeholder' => Carbon\Carbon::now()->format('m/d/Y'), 'id' => 'start-date']) }}
+                                        {{ Form::text('start_date',old('start_date'),['class' => 'form-control', 'placeholder' => Carbon\Carbon::now()->format('m/d/Y'), 'id' => 'start-date']) }}
                                     </div>
                             <span id="helpBlock" class="help-block"> Start of holiday. This field is required. Must be less than end date.</span>                                       
                             @if ($errors->has('start_date'))
@@ -62,7 +62,7 @@
                           <div class="col-md-10">
                                     <div class="input-group date" id="end-date-form">
                                       <span class="input-group-addon glyphicon glyphicon-calendar"></span> 
-                                        {{ Form::date('end_date',old('end_date'),['class' => 'form-control', 'placeholder' => Carbon\Carbon::tomorrow()->format('m/d/Y'), 'id' => 'end-date']) }}
+                                        {{ Form::text('end_date',old('end_date'),['class' => 'form-control', 'placeholder' => Carbon\Carbon::tomorrow()->format('m/d/Y'), 'id' => 'end-date']) }}
                                     </div>
                             <span id="helpBlock" class="help-block"> End of holiday. This field is required. Must be greater than or equal to start date.</span>                  
                             @if ($errors->has('end_date'))

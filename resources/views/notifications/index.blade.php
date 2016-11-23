@@ -28,7 +28,9 @@
 						<th class=""> Attendance Date </th>
 						<th class=""> Recipient </th>
 						<th class=""> Message </th>
-						<th class="" colspan="3"> Status </th>
+						<th class="" colspan=""> Status </th>
+						<th class="" colspan=""> View </th>
+						<th class="" colspan=""> Send </th>
 					</tr>				
 				</thead>
 				

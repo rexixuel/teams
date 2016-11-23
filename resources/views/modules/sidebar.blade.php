@@ -7,7 +7,11 @@
                     <div class="list-group">
                       <div class="list-group-item list-group-photo">
                         <div class="row-picture">
-                          {{ Html::image('users/'.Auth::id().'/photo', Auth::user()->first_name, ['class' => 'circle user-photo'] )}}                          
+                          @if(Auth::user()->photo != null)
+                              {{ Html::image('users/'.Auth::id().'/photo', Auth::user()->first_name, ['class' => 'circle user-photo'] )}}
+                          @else
+                              {{ Html::image('img/default-photo.png', Auth::user()->first_name, ['class' => 'circle user-photo'] )}}
+                          @endif
                         </div>
                       </div>
                     </div>
@@ -38,7 +42,7 @@
           @if(Auth::user()->role <= 1 )
               <li> <a href="{{ URL::asset('attendances/create') }}"> <i class="fa fa-upload" aria-hidden="true"></i> Upload Attendance </a> </li>
               <li> <a href="{{ URL::asset('notifications') }}"> <i class="fa fa-send" aria-hidden="true"></i> Send Notifications </a> </li>
-              <li> <a href="{{ URL::asset('users/register') }}"> <i class="fa fa-user-plus" aria-hidden="true"></i> User Registration </a> </li>
+              <li> <a href="{{ URL::asset('users/register') }}"> <i class="fa fa-user-plus" aria-hidden="true"></i> Employee Registration </a> </li>
               <li> <a href="{{ URL::asset('policies') }}"> <i class="fa fa-gear" aria-hidden="true"></i> Set-up Leave Policies </a> </li>
           @endif
           @if (Auth::user()->role == 2 ||  Auth::user()->role == 0 )

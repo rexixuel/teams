@@ -160,11 +160,12 @@ class UsersController extends Controller
 
 
         $user = $user->find($id);
-        $request['emp_number'] = $user->emp_number;
-        $user->notify(new UserUpdated($user));
+        $request['emp_number'] = $user->emp_number;        
 
-        $user = $user->update($userUpdateFields);
-
+        //$user = $user->update($userUpdateFields);
+	$user->update($userUpdateFields);
+	$user->notify(new UserUpdated($user));
+	    
         return back()->with('message', $request['emp_number'].' - '.title_case($request['first_name']).' '.title_case($request['last_name']).' has been successfully updated!');
     }
 

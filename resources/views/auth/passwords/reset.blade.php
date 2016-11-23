@@ -5,14 +5,23 @@
           'footerClass' => 'footer-main'
           ]
       )
+@section('titlePage')
+  <title> Employee - Reset Password </title>
+@stop
+
+@include('modules.mnav')
+
+@if(!Auth::guest())
+  @include('modules.sidebar')
+@endif
 
 @section('content')
 
 <section class="main">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <!-- <div class="row">
+        <div class="col-md-8 col-md-offset-2"> -->
 
-            @include('modules.titlearea', ['page' => '','titlepage' => 'Users'])
+            @include('modules.titlearea', ['page' => '','titlepage' => 'Employees'])
             <div class="card l-card">
               @include('modules.cardOperation', ['operation' => 'Reset Password', 'operDescription' => 'Enter new password'])
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
@@ -70,8 +79,8 @@
                         </div>
                     </form>
               </div>  
-        </div>
-    </div>
+        <!-- </div>
+    </div>-->
 </section>                                             
 
 @endsection

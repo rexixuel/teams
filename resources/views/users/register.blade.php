@@ -18,7 +18,7 @@
 
 @section('content')
           <section class="main">
-            @include('modules.titlearea', ['page' => '','titlepage' => 'Users'])
+            @include('modules.titlearea', ['page' => '','titlepage' => 'Employees'])
             <div class="card l-card">
               @include('modules.cardOperation', ['operation' => 'Registration', 'operDescription' => 'Register new Tera Employee'])
                 <form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST" action="{{ url('/users') }}">
