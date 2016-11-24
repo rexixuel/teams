@@ -23,7 +23,7 @@ class AttendancesRequest extends Request
      */
     public function rules()
     {   $request = $this->request->all();
-        dd($request);
+        
         if(Request::is('users/*'))
         {
 
@@ -33,13 +33,22 @@ class AttendancesRequest extends Request
             $lunch_out = $request["lunch_out"];
 
         }
-        
-        return [
-            'attendance_log' => 'sometimes|required|mimes:txt,csv',
-            'time_in' => "sometimes|required|",
-            'lunch_out' => 'sometimes|required|min:$time_in + 1',
-            'lunch_in' => 'sometimes|required|min:$lunch_out + 1',
-            'time_out' => 'sometimes|required|min:$lunch_in + 1',
-        ];
+     
+     
+        if(Request::is('attendances') && Request::isMethod('post'))
+        {
+            return [
+                'attendance_log' => 'required|mimes:txt,csv',
+                ];
+        }else
+        {
+            return [
+                'attendance_log' => 'sometimes|required|mimes:txt,csv',
+                'time_in' => "sometimes|required|",
+                'lunch_out' => 'sometimes|required|min:$time_in + 1',
+                'lunch_in' => 'sometimes|required|min:$lunch_out + 1',
+                'time_out' => 'sometimes|required|min:$lunch_in + 1',
+            ];
+        }
     }
 }
