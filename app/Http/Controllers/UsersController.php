@@ -50,8 +50,13 @@ class UsersController extends Controller
 
     public function browse(UsersRequest $request){
         $users = new User;
+	    
         $search = $request->all();
-
+	if ($request->isMethod('get')) {
+		$search['search_first_name'] = '';
+		$search['search_last_name'] = '';
+		$search['search_emp_number'] = '';
+	}
         $users = $users->with('jobDescription')->with('jobClass');
 
         if(Auth::user()->role == 2){
