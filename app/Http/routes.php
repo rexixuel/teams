@@ -30,6 +30,7 @@ Route::get('users/{id}/attendances', 'UsersController@attendance');
 Route::get('users/register', 'UsersController@register');
 Route::get('users/search', 'UsersController@search');
 Route::post('users/browse', 'UsersController@browse');
+Route::get('users/browse', 'UsersController@browse');
 Route::get('users/list', 'UsersController@list');
 Route::resource('users', 'UsersController');
 Route::get('leaves/approval', 'LeavesController@approval');
