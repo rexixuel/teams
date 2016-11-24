@@ -23,7 +23,7 @@ class AttendancesRequest extends Request
      */
     public function rules()
     {   $request = $this->request->all();
-
+        dd($request);
         if(Request::is('users/*'))
         {
 
