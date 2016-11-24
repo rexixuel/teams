@@ -46,7 +46,7 @@ class AttendancesController extends Controller
 
 
         $file = $request['attendance_log'];
-        dd($file);
+        
         $dtrs = Excel::load($file, function($reader) {
 
         })->get();
