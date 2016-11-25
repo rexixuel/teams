@@ -14,8 +14,8 @@ return [
     */
     "is_start_holiday"      => "You are filing for a leave on a Holiday or a Weekend",
     "is_end_holiday"      => "You are filing for a leave on a Holiday or a Weekend",
-    "is_unique_range"      => "There seems to be conflict with one of the other :attribute. Please review your previously filed leaves to resolve conflict",
-    "is_unique_end_range"      => "There seems to be conflict with one of the other :attribute. Please review your previously filed leaves to resolve conflict",
+    "is_unique_range"      => "There seems to be conflict with one of the other :attribute. Please review your previously registered dates to resolve conflict",
+    "is_unique_end_range"      => "There seems to be conflict with one of the other :attribute. Please review your previously registered dates to resolve conflict",
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',
