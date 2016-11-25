@@ -14,8 +14,8 @@ return [
     */
     "is_start_holiday"      => "You are filing for a leave on a Holiday or a Weekend",
     "is_end_holiday"      => "You are filing for a leave on a Holiday or a Weekend",
-    "is_unique_range"      => "There seems to be conflict with one of your other leaves. Please review your previously filed leaves to resolve conflict",
-    "is_unique_end_range"      => "There seems to be conflict with one of your other leaves. Please review your previously filed leaves to resolve conflict",
+    "is_unique_range"      => "There seems to be conflict with one of the other :attribute. Please review your previously filed leaves to resolve conflict",
+    "is_unique_end_range"      => "There seems to be conflict with one of the other :attribute. Please review your previously filed leaves to resolve conflict",
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',
@@ -115,6 +115,8 @@ return [
 
         'num_days' => 'Number of days',
         'reason' => 'Reason for leave',
+        'start_date' => 'start dates you are registering',
+        'start_date' => 'end dates you are registering',
         'rem_vl' => 'Remaining Vacation Leaves',
         'rem_sl' => 'Remaining Sick Leaves',
         'max_vl' => 'Maximum Vacation Leaves',
