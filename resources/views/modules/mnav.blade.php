@@ -18,7 +18,7 @@
 
 @section('navbar')
                     <li class=""> <a href="{{URL::asset('about')}}"> About </a> </li>
-                    <li class=""> <a href="{{URL::asset('help')}}"> Help </a> </li>
+                    <li class=""> <a href="{{URL::asset('https://docs.google.com/document/d/1i0bTTbbd4SNg2p8B5Vin-p9tQnOEdMSjFJRz0q9nX1g/edit?usp=sharing')}}"> Help </a> </li>
                     <li class=""> <a href="{{URL::asset('contact')}}"> Contact </a> </li>
 	@if (!Auth::guest())
                     <li class=""> <a href="{{URL::asset('logout')}}"> Log Out </a> </li>

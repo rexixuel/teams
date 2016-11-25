@@ -112,7 +112,10 @@ a.btn.btn-link{
   padding-top: 17px;
 }
 
-
+blockquote
+{
+  line-height: 1.75em;
+}
 .pagination {
   display: inline-block;
   padding-left: 0;
