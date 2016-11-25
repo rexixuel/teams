@@ -32,8 +32,8 @@ class BenefitRequest extends Request
         {
             return [
                 'benefit_description' => 'required|unique:benefits',
-                'max_vl' => 'required|min:1|max:99',
-                'max_sl' => 'required|min:1|max:99',
+                'max_vl' => 'required|min:1|max:99|numeric',
+                'max_sl' => 'required|min:1|max:99|numeric',
                 'allow_vl_update' => 'required|min:0|max:1',
             ];
         }
@@ -41,8 +41,8 @@ class BenefitRequest extends Request
         {
             return [
                 'benefit_description' => 'required',
-                'max_vl' => 'required|min:1|max:99',
-                'max_sl' => 'required|min:1|max:99',
+                'max_vl' => 'required|min:1|max:99|numeric',
+                'max_sl' => 'required|min:1|max:99|numeric',
                 'allow_vl_update' => 'required|min:0|max:1',
             ];
         }

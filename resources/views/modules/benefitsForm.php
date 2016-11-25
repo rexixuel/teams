@@ -9,13 +9,13 @@
                         <div class="form-group">
                           <label for="max_vl" class="col-md-2 control-label"> Vacation Leaves </label>
                           <div class="col-md-10">
-                            <input id="max-vl" name="max_vl" type="number" class="form-control" placeholder="15">
+                            <input id="max-vl" name="max_vl" type="number" size="3" maxlength="3" class="form-control" placeholder="15">
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="max_sl" class="col-md-2 control-label"> Sick Leaves </label>
                           <div class="col-md-10">
-                            <input id="max-sl" name="max_sl" type="number" class="form-control" placeholder="13">
+                            <input id="max-sl" name="max_sl" type="number" size="3" maxlength="3" class="form-control" placeholder="13">
                           </div>
                         </div>       
                         <div class="form-group">

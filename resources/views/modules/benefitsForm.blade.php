@@ -2,7 +2,7 @@
                         <div class="form-group">
                           <label for="benefit_description" class="col-md-2 control-label"> Description </label>
                           <div class="col-md-10">
-                            <input id="benefit-description" name="benefit_description" type="text" class="form-control" placeholder="New Benefit">
+                            <input id="benefit-description" name="benefit_description" type="text" class="form-control" placeholder="New Benefit" value="{{ old('benefit_description')}}">
 
                             @include('modules.errorField', ['field' => 'benefit_description'])
                           </div>
@@ -11,7 +11,7 @@
                         <div class="form-group">
                           <label for="max_vl" class="col-md-2 control-label"> Vacation Leaves </label>
                           <div class="col-md-10">
-                            <input id="max-vl" name="max_vl" type="number" class="form-control" placeholder="15">
+                            <input id="max-vl" name="max_vl" type="number" size="3" maxlength="3" class="form-control" placeholder="15" value="{{ old('max_vl')}}">
 
                             @include('modules.errorField', ['field' => 'max_vl'])
                           </div>
@@ -19,7 +19,7 @@
                         <div class="form-group">
                           <label for="max_sl" class="col-md-2 control-label"> Sick Leaves </label>
                           <div class="col-md-10">
-                            <input id="max-sl" name="max_sl" type="number" class="form-control" placeholder="13">
+                            <input id="max-sl" name="max_sl" type="number" size="3" maxlength="3" class="form-control" placeholder="13" value="{{ old('max_sl')}}">
                             @include('modules.errorField', ['field' => 'max_sl'])
                           </div>
                         </div>       

@@ -117,6 +117,8 @@ return [
         'reason' => 'Reason for leave',
         'rem_vl' => 'Remaining Vacation Leaves',
         'rem_sl' => 'Remaining Sick Leaves',
+        'max_vl' => 'Maximum Vacation Leaves',
+        'max_sl' => 'Maximum Sick Leaves',        
         'emp_number' => 'Employee Number',
         'first_name' => 'First Name',
         'last_name' => 'Last Name',
