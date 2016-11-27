@@ -26,6 +26,7 @@
                         <div class="alert alert-success">
                             {{ session('message') }}
                         </div>
+                        <a href="{{ url('jobclasses/search') }}"> Edit another job class? </a>
                     @endif
               <fieldset>
               <legend> <small> Go to Benefit Package: <a href="{{ url('benefits/'.$jobClass->benefits->id.'/edit')}}" > {{$jobClass->benefits->benefit_description}} </a> </small></legend>              

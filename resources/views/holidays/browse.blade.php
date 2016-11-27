@@ -47,7 +47,7 @@
 						@endforeach
 					@else
 						<tr>
-							<td colspan="6" class="text-center"> No matching employees </td>
+							<td colspan="6" class="text-center"> No matching holidays </td>
 						</tr>
 					@endif
 

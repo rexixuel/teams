@@ -20,7 +20,7 @@
 			{{ Form::open(['url' => 'leaves', 'method' => 'POST', 'class' => 'form-horizontal']) }}
 			<fieldset>
 				@include('modules.leavesForm', ['disabled' => '', 'readonly' => ''])
-                @include('modules.submitField', ['field' => 'Submit'])
+                @include('modules.submitField', ['field' => 'Submit', 'backUrl' => URL::previous()])
 			</fieldset>
 			
 			{{ Form::close()}}

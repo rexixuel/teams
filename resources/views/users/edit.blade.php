@@ -26,7 +26,9 @@
                     @if (session('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}
+                            <br />
                         </div>
+                        <a href="{{ url('users/search') }}"> Edit another user? </a>
                     @endif                    
                     <fieldset>
 
@@ -58,9 +60,9 @@
                         <label for="first_name" class="col-md-2 control-label"> Middle Name </label>
                         <div class="col-md-10">
                           @if($errors->has('middle_name'))
-                          <input id="middle-name" name="middle_name" type="text" class="form-control" placeholder="M" value="{{ old('middle_name') }}">
+                          <input id="middle-name" name="middle_name" type="text" class="form-control" placeholder="Manaloto" value="{{ old('middle_name') }}">
                           @else
-                          <input id="middle-name" name="middle_name" type="text" class="form-control" placeholder="M" value="{{ $user->middle_name }}">
+                          <input id="middle-name" name="middle_name" type="text" class="form-control" placeholder="Manaloto" value="{{ $user->middle_name }}">
                           @endif
                           @include('modules.errorField', ['field' => 'first_name'])
                           <span id="helpBlock" class="help-block"> Employee's middle name. This field is required and is used for building name key.</span>

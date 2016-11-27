@@ -22,6 +22,12 @@
                             {{ session('message') }}
                         </div>
                     @endif                    			
+            <div class="row">
+           	  <div class="col-md-2">
+				<a href="{{ url('leaves/create') }}"> File for New Leave? </a>                    
+			  </div>
+			</div>
+			<br />
 			<table class='table table-striped table-hover'>
 				<thead>
 					<tr>
@@ -61,7 +67,7 @@
 
 		<div class="card l-card">
 			@include('modules.cardOperation', ['operation' => 'Remaining Leaves', 'operDescription' => 'View number of remaining leaves'])
-			<div class="row">
+			<div class="row l-card-content">
 				<div class="col-md-6 text-center">
 					<strong> Vacation Leaves: </strong> 
 					@if(!Request::is('leaves/approval/*'))

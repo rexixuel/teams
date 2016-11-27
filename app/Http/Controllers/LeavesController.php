@@ -84,7 +84,7 @@ class LeavesController extends Controller
         $leaveTypes = $leaveType::all();
         if(!empty($leaves['num_days']))
         {
-            $leaves['num_days'] = number_format($leaves['num_days'], 2);            
+            $leaves['num_days'] = number_format($leaves['num_days'], 3);
         }
         return view('leaves.review', compact('user', 'leaves', 'leaveTypes'));
 
@@ -99,7 +99,11 @@ class LeavesController extends Controller
         // see this is it fails
         $leave = $leave->findOrFail($id)->load('employees');
 
-        $numOfDays = $leaveFields['num_days'];
+        if($leaveFields['leave_sub_type'] != "whole"){
+            $numOfDays = $leaveFields['num_days'] / 8;
+        }else{
+            $numOfDays = $leaveFields['num_days'];            
+        }
 
 
         if (strtoupper($leaveFields['submit']) == 'APPROVE')
@@ -127,7 +131,7 @@ class LeavesController extends Controller
         $leave->push();
 
 
-        return back()->with('message', $leave->employees->first_name.' '.$leave->employees->last_name.'\'s leave has been '.$leave->status);
+        return redirect('leaves/approval')->with('message', $leave->employees->first_name.' '.$leave->employees->last_name.'\'s leave has been '.$leave->status);
 
     }
 
@@ -143,7 +147,7 @@ class LeavesController extends Controller
 
         if(!empty($leaves['num_days']))
         {
-            $leaves['num_days'] = number_format($leaves['num_days'], 2);            
+            $leaves['num_days'] = number_format($leaves['num_days'], 3);            
         }
 
         return view('leaves.show', compact('user', 'leaves', 'leaveTypes'));

@@ -23,6 +23,7 @@
                         <div class="alert alert-success">
                             {{ session('message') }}
                         </div>
+                        <a href="{{ url('holidays/search') }}"> Edit another holiday? </a>
                     @endif                    
    			{!! Form::model($holidays, ['action' => ['HolidaysController@update',$holidays->id], 'method' => 'PATCH', 'class' => 'form-horizontal']) !!}
 

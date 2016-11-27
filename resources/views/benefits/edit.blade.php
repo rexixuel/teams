@@ -27,6 +27,7 @@
                         <div class="alert alert-success">
                             {{ session('message') }}
                         </div>
+                        <a href="{{ url('benefits/search') }}"> Edit another benefit? </a>
                     @endif
               <fieldset>
                 @include('modules.benefitsForm', ['disabled' => '', 'readonly' => ''])

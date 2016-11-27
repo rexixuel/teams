@@ -34,3 +34,5 @@
             </div>  
           </section>                         
 @stop
+
+@include('modules.sidebarScript')

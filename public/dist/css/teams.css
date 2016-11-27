@@ -235,7 +235,8 @@ blockquote
 
 .events .headers,.clndr-controls div{
     padding: 20px;
-    background: #D32F2F;
+    background: #455a64;
+    /*background: #D32F2F;*/
     overflow-x: hidden;
     /*background: #607D8B;*/
 }
@@ -246,7 +247,8 @@ blockquote
 
 .event-header, .month{
     /*font-weight: bold; */
-    color: #FFCDD2; 
+    /*color: #FFCDD2; */
+    color: #FFF; 
 }
 
 .last-month, .next-month{
@@ -330,8 +332,31 @@ h3{
 }
 
 .l-card{
-  padding: 20px 35px 20px 20px;
+  padding: 20px 20px 20px 20px;
 }
+
+.l-card form{
+  margin-right: 60px;
+}
+/*.l-card form, .l-card .l-card-content {
+  margin: 20px 35px 20px 20px;
+}
+
+.l-card table{
+  margin: 20px 0px 20px 0px;
+}*/
+
+.card-operation{
+  background:url('../../img/card-operation.jpg');
+  background-size: cover;
+  margin: 0px;
+}
+
+.card-operation-text{  
+  color:rgba(255,255,255,.90);
+  padding: 20px 0px 10px 0px;
+}
+
 .l-card{  
   margin-top: 15px;
   margin-bottom: 30px;
@@ -380,7 +405,9 @@ h1.titlepage, legend small, legend.titlepage{
   margin:0px;
   /*padding-bottom: 30px;*/
 }
-
+small.card-operation-text{
+  color:rgba(255,255,255,.72);
+}
 legend.titlepage{
   font-size: 30px;
 }

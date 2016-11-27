@@ -23,6 +23,12 @@
                         </div>
                     @endif                    			
 			<h4> Search Term: <small> {{ $searchRequest->search_description }} </small> </h4> 
+  	        <div class="row">
+           	  <div class="col-md-2">
+				<a href="{{ url('jobclasses/create') }}"> Create New Job Class? </a>                    
+			  </div>
+			</div>
+			<br />
 			<table class='table table-striped table-hover'>
 				<thead>
 					<tr>
@@ -45,7 +51,7 @@
 						@endforeach
 					@else
 						<tr>
-							<td colspan="6" class="text-center"> No matching employees </td>
+							<td colspan="6" class="text-center"> No matching job classes </td>
 						</tr>
 					@endif
 

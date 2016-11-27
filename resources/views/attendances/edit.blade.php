@@ -24,6 +24,7 @@
                         <div class="alert alert-success">
                             {{ session('message') }}
                         </div>
+                        <a href="{{ url('users/search') }}"> Edit another user attendance? </a>
                     @endif
 			
 			<fieldset>

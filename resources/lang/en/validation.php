@@ -95,8 +95,11 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'end_date' => [
+            'required' => 'The :attribute is required',
+        ],
+        'start_date' => [
+            'required' => 'The :attribute is required',
         ],
     ],
 
@@ -113,10 +116,10 @@ return [
 
     'attributes' => [
 
-        'num_days' => 'Number of days',
+        'num_days' => 'Duration',
         'reason' => 'Reason for leave',
         'start_date' => 'start dates you are registering',
-        'start_date' => 'end dates you are registering',
+        'end_date' => 'end dates you are registering',
         'rem_vl' => 'Remaining Vacation Leaves',
         'rem_sl' => 'Remaining Sick Leaves',
         'max_vl' => 'Maximum Vacation Leaves',

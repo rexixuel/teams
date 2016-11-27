@@ -26,6 +26,7 @@ class UsersRequest extends Request
     public function rules()
     {
 
+        // dd($this->request->all());
         $rules = [
             'emp_number' => 'sometimes|required|max:4|unique:users',
             'first_name' => 'sometimes|required|max:255',
@@ -35,9 +36,14 @@ class UsersRequest extends Request
             'job_class_id' => 'sometimes|required|integer',
             'job_description_id' => 'sometimes|required|integer',
             'supervisor_id' => 'sometimes|required|integer',
-            'email' => 'sometimes|required|email|max:255|',
+            'email' => 'sometimes|required|email|max:255',
             
         ];
+
+        if (!Request::is('users/browse'))
+        {
+            $rules = array_merge($rules, array('job_description_id' => 'required|integer'));
+        }
 
         if(Request::is('users/*') && !Request::is('users/browse') )
         {   
@@ -60,13 +66,13 @@ class UsersRequest extends Request
             
             if ($user->email != $request['email'])
             {
-                $rules = array_merge($rules, array('email' => 'unique:users'));
+                $rules = array_merge($rules, array('email' => 'sometimes|required|email|max:255|unique:users'));
             }
 
         }
         else
         {
-            $rules = array_merge($rules, array('email' => 'unique:users'));
+            $rules = array_merge($rules, array('email' => 'sometimes|required|email|max:255|unique:users'));
         }
         return $rules;
     }

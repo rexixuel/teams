@@ -42,6 +42,7 @@
             			<li> Jeffrey Way and Satt Stauffer - for the awesome tutorials at <a href="{{ url ('https://laracasts.com/')}} " > laracasts </a> and at <a href="{{ url('mattstauffer.co')}}"> mattstauffer.co </a> </li>
             			<li> T00rk - for the great <a href="{{ url ('https://github.com/T00rk/bootstrap-material-datetimepicker')}}"> datetimepicker </a> </li>
             			<li> Maatwebsite - for the brilliant <a href="{{ url('https://github.com/Maatwebsite/Laravel-Excel/')}}"> excel package for PHP </a></li>
+                  <li> The artists at <a href="{{ url('https://unsplash.com')}}"> Unsplash </a>, for the magnificent photos </li>
         			</ul>
             		<br />
             		<p class="lead"> and especially...</p>
@@ -53,3 +54,5 @@
             </div>  
           </section>                         
 @stop
+
+@include('modules.sidebarScript')

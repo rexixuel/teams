@@ -69,17 +69,29 @@
                         </label>
                       @else
                         <label class="">
-                            <input type="radio" name="leave_sub_type" id="leave-sub-type" value="whole" {{ $leaves->num_days  >= 1 ? 'checked='.'"'.'checked'.'"' : ''}} {{ $disabled }} >
+                        	@if($leaves->num_days  >= 1)
+                            	<input type="radio" name="leave_sub_type" id="leave-sub-type" value="whole" {{ $leaves->num_days  >= 1 ? 'checked='.'"'.'checked'.'"' : ''}} >
+                            @else
+                            	<input type="radio" name="leave_sub_type" id="leave-sub-type" value="whole" {{ $leaves->num_days  >= 1 ? 'checked='.'"'.'checked'.'"' : ''}} {{ $disabled }} >
+                            @endif
     						Whole day(s)
                         </label>
 
                         <label class="">
-                            <input type="radio" name="leave_sub_type" id="leave-sub-type" value="half" {{ $leaves->num_days  < 1 && $leaves->num_days  > 0.375 ? 'checked='.'"'.'checked'.'"' : ''}} {{ $disabled }} >
+                        	@if($leaves->num_days  < 1 && $leaves->num_days  > 0.375)
+                            	<input type="radio" name="leave_sub_type" id="leave-sub-type" value="half" {{ $leaves->num_days  < 1 && $leaves->num_days  > 0.375 ? 'checked='.'"'.'checked'.'"' : ''}} >
+                            @else
+                            	<input type="radio" name="leave_sub_type" id="leave-sub-type" value="half" {{ $leaves->num_days  < 1 && $leaves->num_days  > 0.375 ? 'checked='.'"'.'checked'.'"' : ''}} {{ $disabled }} >
+                            @endif
     						Half day
                         </label>
 
                         <label class="">
-                            <input type="radio" name="leave_sub_type" id="leave-sub-type" value="under" {{ $leaves->num_days  < 0.5 ? 'checked='.'"'.'checked'.'"' : '' }} {{ $disabled }}>
+                        	@if($leaves->num_days  < 0.5)
+                            	<input type="radio" name="leave_sub_type" id="leave-sub-type" value="under" {{ $leaves->num_days  < 0.5 ? 'checked='.'"'.'checked'.'"' : '' }} >
+                            @else
+                            	<input type="radio" name="leave_sub_type" id="leave-sub-type" value="under" {{ $leaves->num_days  < 0.5 ? 'checked='.'"'.'checked'.'"' : '' }} {{ $disabled }}>
+                            @endif
     						Undertime
                         </label>                      
                       @endif

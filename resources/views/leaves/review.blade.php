@@ -24,6 +24,7 @@
                         <div class="alert alert-success">
                             {{ session('message') }}
                         </div>
+						<a href="{{ url('leaves/approval') }}"> Review another leave? </a>
                     @endif                    
 			
 			<fieldset>

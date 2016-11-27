@@ -23,6 +23,12 @@
                         </div>
                     @endif                    			
 			<h4> Search Term: <small> {{ $searchRequest->search_description }} </small> </h4> 
+  	        <div class="row">
+           	  <div class="col-md-2">
+				<a href="{{ url('benefits/create') }}"> Create New Benefit? </a>                    
+			  </div>
+			</div>
+			<br />			
 			<table class='table table-striped table-hover'>
 				<thead>
 					<tr>

@@ -395,7 +395,7 @@ class AttendancesController extends Controller
                     {                        
                         if(($attendance->time_in == "00:00:00" || $attendance->time_in == null) && ($attendance->time_out == "00:00:00" || $attendance->time_out == null))
                         {
-                            $errorArray[8] = $message."<li> You have no attendance log on this date. Did you want to file for a <a href='".url('leave/create')."'> leave? </a> </li>";
+                            $errorArray[8] = $message."<li> You have no attendance log on this date. Did you want to file for a <a href='".url('leaves/create')."'> leave? </a> </li>";
                         }
 
                         if(strtotime($attendance->time_out) <= strtotime("17:00:00"))

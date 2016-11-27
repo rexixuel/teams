@@ -54,7 +54,7 @@
                       <div class="form-group {{ $errors->has('middle_name') ? ' has-error' : '' }}">
                         <label for="first_name" class="col-md-2 control-label"> Middle Name </label>
                         <div class="col-md-10">
-                          <input id="middle-name" name="middle_name" type="text" class="form-control" placeholder="M" value="{{ old('middle_name') }}">
+                          <input id="middle-name" name="middle_name" type="text" class="form-control" placeholder="Manaloto" value="{{ old('middle_name') }}">
                           @include('modules.errorField', ['field' => 'first_name'])
                           <span id="helpBlock" class="help-block"> Employee's middle name. This field is required and is used for building name key.</span>
                         </div>

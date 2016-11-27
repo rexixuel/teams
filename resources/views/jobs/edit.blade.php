@@ -25,6 +25,7 @@
                         <div class="alert alert-success">
                             {{ session('message') }}
                         </div>
+                        <a href="{{ url('jobs/search') }}"> Edit another job description? </a>
                     @endif              
               {!! Form::model($jobDescription, ['action' => ['JobsController@update',$jobDescription->id], 'method' => 'PATCH', 'class' => 'form-horizontal']) !!}
               <legend> <small> Go to Job Class: <a href="{{ url('jobclasses/'.$jobDescription->jobClasses->id.'/edit')}}" > {{$jobDescription->jobClasses->job_class_description}} </a> </small></legend>
