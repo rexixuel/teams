@@ -12,8 +12,9 @@
       <link rel="stylesheet" href="{{ URL::asset('/dist/css/bootstrap-material-design.min.css') }}" />
       <link rel="stylesheet" href="{{ URL::asset('/dist/css/font-awesome.css') }}" />
       <link rel="stylesheet" href="{{ URL::asset('/dist/css/ripples.min.css') }}" />
-      <link rel="stylesheet" href="{{ URL::asset('/dist/css/simple-sidebar.css') }}" />
-
+      @if(!Auth::guest())
+        <link rel="stylesheet" href="{{ URL::asset('/dist/css/simple-sidebar.css') }}" />
+      @endif
       <link rel="stylesheet" href="{{ URL::asset('/dist/css/teams.css') }}" />
       <link rel="stylesheet" href="{{ URL::asset('/dist/css/bootstrap-material-datetimepicker.css') }}" />
 

@@ -347,13 +347,13 @@ h3{
 }*/
 
 .card-operation{
-  background:url('../../img/card-operation.jpg');
+  background:url('../../img/card-operation.png');
   background-size: cover;
   margin: 0px;
 }
 
 .card-operation-text{  
-  color:rgba(255,255,255,.90);
+  color:rgba(255,255,255,.92);
   padding: 20px 0px 10px 0px;
 }
 
@@ -388,7 +388,13 @@ footer{
 }
 
 footer p{
-  margin-top: 25px;
+  margin: 10px 0px 0px 0px;
+}
+
+@media(min-width:768px) {
+  footer p{
+    margin: 22px 0px 0px 0px;
+  }
 }
 
 footer > li{
@@ -406,7 +412,7 @@ h1.titlepage, legend small, legend.titlepage{
   /*padding-bottom: 30px;*/
 }
 small.card-operation-text{
-  color:rgba(255,255,255,.72);
+  color:rgba(255,255,255,.82);
 }
 legend.titlepage{
   font-size: 30px;
