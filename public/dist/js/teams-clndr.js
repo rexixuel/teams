@@ -64,7 +64,7 @@ $( function() {
                     var item = {
                       "date" : moment(event.start_date).format('YYYY-MM-DD'),
                       "title" : event.holiday_description,
-                      "url" : event.id,
+                      // "url" : event.id,
                     }
                     teamsEvents.push(item);
                   }
@@ -74,7 +74,7 @@ $( function() {
                         "start" : moment(event.start_date).format('YYYY-MM-DD'),
                         "end" : moment(event.end_date).format('YYYY-MM-DD'),
                         "title" : event.holiday_description,
-                        "url" : event.id,
+                        // "url" : event.id,
                         "timeIn" : event.time_in, "timeOut" : event.time_out
                     }                    
                     teamsEvents.push(multi);

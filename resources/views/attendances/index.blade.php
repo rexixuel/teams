@@ -73,8 +73,15 @@
 
 			                  <% _.each(eventsThisMonth, function(event) { %>
 			                    <tr class="event">
-			                      <td> 
-			                      	<%= moment(event.date).format('MMMM DD, YYYY') %>
+			                      <td>
+			                        <% if (event.start != null) { %>
+			                      		<%= moment(event.start).format('MMMM DD, YYYY') %> - <%= moment(event.end).format('MMMM DD, YYYY') %> <%= event.title %>
+		                      		<% }else { %>
+			                      		<%= moment(event.date).format('MMMM DD, YYYY') %>  
+			                      		<% if (event.timeIn == null) { %>
+			                      			<%= event.title %>
+			                      		<% } %>		
+									<% } %>
 			                      </td>
 			                      <td>
 			                      	<%= event.timeIn %>

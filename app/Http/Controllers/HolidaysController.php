@@ -18,6 +18,11 @@ class HolidaysController extends Controller
         $this->middleware('isUserHRD');
 	}
 
+    public function index()
+    {
+        return $this->show();
+    }
+
     public function create()
     {
     	return view('holidays.create');
