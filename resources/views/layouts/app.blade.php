@@ -58,9 +58,7 @@
           <section class="main">
             @yield('content')
           </section>
-          <section class="main">
-            @yield('content')
-          </section>          
+          
         </div>
         <footer class="row {{ $footerClass }}">
           <div class="col-xs-4">
