@@ -12,6 +12,8 @@ use App\Http\Requests\LeavesRequest;
 use App\Notifications\LeaveProcessed;
 use App\Notifications\LeaveReviewed;
 use App\Notifications\LeaveRevoked;
+use App\CustomClasses\EmployeeSick;
+use App\CustomClasses\EmployeeVacation;
 
 use Carbon;
 use Auth;
@@ -20,13 +22,11 @@ class LeavesController extends Controller
 {
 
     public function __construct()
-    
     {
 
         $this->middleware('auth');
         $this->middleware('isUserProjectManager', ['only' => ['review', 'approve']]);
         $this->middleware('isUserAdmin', ['only' => ['approval']]);
-
     }
 
     public function index()
@@ -38,8 +38,8 @@ class LeavesController extends Controller
         $user = Auth::user()->load('leaves')->load('leaves.leaveTypes');
         
         // $leaves = $user->leaves()->orderBy('created_at','desc')->get();
-        $leaves = $user->leaves()->orderBy('created_at','desc')->paginate(3);
-    	return view('leaves.index', compact('leaves'));
+        $leaves = $user->leaves()->orderBy('created_at', 'desc')->paginate(3);
+        return view('leaves.index', compact('leaves'));
     }
 
     public function approval()
@@ -49,16 +49,12 @@ class LeavesController extends Controller
         $leaves = new Leave;
         $users = new User;
 
-        // $leaves = $leaves->where('status','=','Pending')->whereHas('employees', function($q) {
-        //         $q->where('users.supervisor_id','=',Auth::id());
-        // })->orderBy('created_at','desc')->get()->load('employees','leaveTypes');
-
-        $leaves = $leaves->where('status','=','Pending')->whereHas('employees', function($q) {
-                $q->where('users.supervisor_id','=',Auth::id());
-        })->orderBy('created_at','desc')->paginate(3)->load('employees','leaveTypes');
+        $leaves = $leaves->where('status', '=', 'Pending')->whereHas('employees', function ($q) {
+                $q->where('users.supervisor_id', '=', Auth::id());
+        })->orderBy('created_at', 'desc')->paginate(3)->load('employees', 'leaveTypes');
         
         return view('leaves.approval', compact('leaves'));
-    }    
+    }
 
     public function approvalAll($id)
     {
@@ -71,7 +67,7 @@ class LeavesController extends Controller
         $leaves = $user->leaves()->paginate(3);
 
         return view('leaves.index', compact('leaves', 'user'));
-    }        
+    }
 
     public function review($id)
     {
@@ -79,48 +75,51 @@ class LeavesController extends Controller
         $leave = new Leave;
         $leaveType = new LeaveType;
 
-        $leaves = $leave->findOrFail($id)->load('employees');                
+        $leaves = $leave->findOrFail($id)->load('employees');
         $user = $leaves->employees;
         $leaveTypes = $leaveType::all();
-        if(!empty($leaves['num_days']))
-        {
+        if (!empty($leaves['num_days'])) {
             $leaves['num_days'] = number_format($leaves['num_days'], 3);
         }
         return view('leaves.review', compact('user', 'leaves', 'leaveTypes'));
+    }
 
-    }    
-
-    public function approve(LeavesRequest $request, $id){
+    public function approve(LeavesRequest $request, $id)
+    {
         
         $leave = new Leave;
         $leaveType = new LeaveType;
 
-        $leaveFields = $request->all();    
-        // see this is it fails
+        $leaveFields = $request->all();
+        
         $leave = $leave->findOrFail($id)->load('employees');
+        $leaveType = $leave->findOrFail($id)->load('leaveTypes');
 
-        if($leaveFields['leave_sub_type'] != "whole"){
+        // this can also be moved to a class CalculateDays
+
+        if ($leaveFields['leave_sub_type'] != "whole") {
             $numOfDays = $leaveFields['num_days'] / 8;
-        }else{
-            $numOfDays = $leaveFields['num_days'];            
+        } else {
+            $numOfDays = $leaveFields['num_days'];
         }
 
+        // this can be moved to a class Approvals or Leaves
 
-        if (strtoupper($leaveFields['submit']) == 'APPROVE')
-        {
+        if (strtoupper($leaveFields['submit']) == 'APPROVE') {
             $leave->status = 'Approved';
+            $leaveClass = 'App\CustomClasses\\'.$leaveType->leaveTypes->leave_type_class;
+            
 
-            if ($leave->leave_type_id == 1)
-            {
-                $leave->employees->rem_vl = $leave->employees->rem_vl - $numOfDays;        
-            }else
-            {
-                $leave->employees->rem_sl = $leave->employees->rem_sl - $numOfDays;                    
-            }                
-                    
-        }
-        else
-        {
+            // dd($employeeLeave->RemainingLeaves());
+
+            if ($leave->leave_type_id == 1) {
+                $employeeLeave = new $leaveClass($numOfDays, $leave->employees->rem_vl);
+                $leave->employees->rem_vl = $employeeLeave->RemainingLeaves();
+            } else {
+                $employeeLeave = new $leaveClass($numOfDays, $leave->employees->rem_sl);
+                $leave->employees->rem_sl = $employeeSick->RemainingLeaves();
+            }
+        } else {
             $leave->status = 'Rejected';
         }
 
@@ -132,22 +131,20 @@ class LeavesController extends Controller
 
 
         return redirect('leaves/approval')->with('message', $leave->employees->first_name.' '.$leave->employees->last_name.'\'s leave has been '.$leave->status);
-
     }
 
- 	public function show($id)
+    public function show($id)
     {
 
         $leave = new Leave;
         $leaveType = new LeaveType;
 
-        $leaves = $leave->findOrFail($id)->load('employees');                
+        $leaves = $leave->findOrFail($id)->load('employees');
         $user = $leaves->employees;
         $leaveTypes = $leaveType::all();
 
-        if(!empty($leaves['num_days']))
-        {
-            $leaves['num_days'] = number_format($leaves['num_days'], 3);            
+        if (!empty($leaves['num_days'])) {
+            $leaves['num_days'] = number_format($leaves['num_days'], 3);
         }
 
         return view('leaves.show', compact('user', 'leaves', 'leaveTypes'));
@@ -159,12 +156,11 @@ class LeavesController extends Controller
         $leave = new Leave;
         $leaveType = new LeaveType;
 
-        $leaves = $leave->findOrFail($id)->load('employees');                
+        $leaves = $leave->findOrFail($id)->load('employees');
         $user = $leaves->employees;
         $leaveTypes = $leaveType::all();
 
         return view('leaves.edit', compact('user', 'leaves', 'leaveTypes'));
-
     }
 
     public function update($id)
@@ -182,7 +178,7 @@ class LeavesController extends Controller
         $user->notify(new LeaveRevoked($leave));
 
         $users = new User;
-        $users = $users->where('role','=',1)->get();
+        $users = $users->where('role', '=', 1)->get();
         
         foreach ($users as $user) {
             $user->notify(new LeaveRevoked($leave));
@@ -192,7 +188,7 @@ class LeavesController extends Controller
 
 
 
-        return back()->with('message', 'Your leave has been '.$leave->status);        
+        return back()->with('message', 'Your leave has been '.$leave->status);
     }
 
     public function create()
@@ -204,24 +200,22 @@ class LeavesController extends Controller
 
         $leaveTypes = $leaveType::all();
 
-        if($user->supervisor_id != null){
-            return view('leaves.create', compact('user', 'leaveTypes'));            
-        }
-        else{
+        if ($user->supervisor_id != null) {
+            return view('leaves.create', compact('user', 'leaveTypes'));
+        } else {
             return view('errors.noSupervisor');
         }
-
     }
 
     public function store(LeavesRequest $request)
     {
 
-		$leaveFields = $request->all();
-		$leaveFields['status'] = 'Pending';
+        $leaveFields = $request->all();
+        $leaveFields['status'] = 'Pending';
         
-        if($leaveFields['leave_sub_type'] != "whole"){
+        if ($leaveFields['leave_sub_type'] != "whole") {
             $leaveFields['end_date'] = $leaveFields['start_date'];
-        }                   
+        }
 
         
         $leave = Auth::user()->fileLeave(
@@ -232,8 +226,6 @@ class LeavesController extends Controller
         
         $user->supervisors->info->notify(new LeaveReviewed($leave));
         
-		return redirect('leaves')->with('message', 'Leave has been successfully filed. Please wait for your supervisor\'s approval. Thank you.');
-
+        return redirect('leaves')->with('message', 'Leave has been successfully filed. Please wait for your supervisor\'s approval. Thank you.');
     }
-       
 }
