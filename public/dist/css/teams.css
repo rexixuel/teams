@@ -8,12 +8,14 @@
 }
 
 body, textarea{
-    font-family: 'Lato', 'Montserrat', 'Roboto', sans-serif;
+    /*font-family: 'Lato', 'Montserrat', 'Roboto', sans-serif;*/
+    font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
 body{
   background: #eceff1;
 }
+
 h1{
     text-transform: uppercase;
     letter-spacing: 10px;
@@ -21,7 +23,7 @@ h1{
 }
 
 label{
-  color::rgba(255,255,255,.84);
+  color:rgba(255,255,255,.84);
 }
 
 ul > li.titlepage:hover, .sidebar-user, .footer-text > a{
